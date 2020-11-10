@@ -1,16 +1,3 @@
-// Check if employee is Present or Absent
-{
-    const IS_ABSENT = 0;
-    let empCheck = Math.floor(Math.random() * 10) % 2;
-    if (empCheck == IS_ABSENT) {
-        console.log("Employee is ABSENT");
-        return;
-    }
-    else {
-        console.log("Employee is PRESENT");
-    }
-}
-
 // Calculate Daily Wage
 
 const IS_PART_TIME = 1;
@@ -19,17 +6,17 @@ const PART_TIME_HOURS = 4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
 
-let empHrs = 0;
-let empCheck = Math.floor(Math.random() * 10) % 3;
-switch (empCheck) {
-    case IS_PART_TIME:
-        empHrs = PART_TIME_HOURS;
-        break;
-    case IS_FULL_TIME:
-        empHrs = FULL_TIME_HOURS;
-        break;
-    default:
-        empHrs = 0;
+function getWorkingHours(empCheck) {
+    switch (empCheck) {
+        case IS_PART_TIME:
+            return PART_TIME_HOURS;
+        case IS_FULL_TIME:
+            return FULL_TIME_HOURS;
+        default:
+            return 0;
+    }
 }
+let empCheck = Math.floor(Math.random() * 10) % 3;
+let empHrs = getWorkingHours(empCheck);
 let empWage = empHrs * WAGE_PER_HOUR;
 console.log("Total Hours: " + empHrs + " Total Wage: " + empWage);
