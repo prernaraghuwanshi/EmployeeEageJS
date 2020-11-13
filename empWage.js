@@ -133,3 +133,17 @@ console.log("No working days: " + noWorkingDays);
 // Object creation
 console.log("Object creation: " + empDailyHrsAndWageArr);
 
+// Object operations using arrow functions
+
+let totalWagesUsingObjects = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0).reduce((totalWage, dailyHrsAndWage) => totalWage += dailyHrsAndWage.dailyWage, 0);
+let totalHoursUsingObjects = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours > 0).reduce((totalHours, dailyHrsAndWage) => totalHours += dailyHrsAndWage.dailyHours, 0);
+console.log("Total Hours (Objects): " + totalHoursUsingObjects + " Total Wages (Objects): " + totalWagesUsingObjects);
+
+process.stdout.write("Logging full work days")
+empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 8).forEach(dailyHrsAndWage => process.stdout.write(dailyHrsAndWage.toString()));
+
+let partWorkingDaysArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 4).map(dailyHrsAndWage => dailyHrsAndWage.toString());
+console.log("\n Part Working Days using Objects: " + partWorkingDaysArr);
+
+let noWorkingDaysArr = empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0).map(dailyHrsAndWage => dailyHrsAndWage.dailyNum);
+console.log("Non working days using Objects: " + noWorkingDaysArr);
